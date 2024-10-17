@@ -1,192 +1,368 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>eSports Manager</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
-    type="text/css" />
-  <link href="css/styles.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css"
-    integrity="sha512-/VYneElp5u4puMaIp/4ibGxlTd2MV3kuUIroR3NSQjS2h9XKQNebRQiyyoQKeiGE9mRdjSCIZf9pb7AVJ8DhCg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-</head>
-
-<body>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-
-  <nav class="navbar navbar-expand-lg bg-info text-uppercase fixed-top text-white" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand text-white" href="#page-top"><img src="assets/esportsmanagertrophy.svg"
-          height="45em" /></a>
-      <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button"
-        data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <i class="bi bi-list"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link text-white py-3 px-0 px-lg-3 rounded" href="#"><i
-                class="ri-home-2-line px-2"></i>Home</a></li>
-          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link text-white py-3 px-0 px-lg-3 rounded"
-              href="https://github.com/sturdy-robot/esports-manager" target="_blank"><i
-                class="ri-github-line px-2"></i>GitHub</a></li>
-          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link text-white py-3 px-0 px-lg-3 rounded" href="#"><i
-                class="ri-newspaper-line px-2"></i>News</a></li>
-          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link text-white py-3 px-0 px-lg-3 rounded" href="#"><i
-                class="ri-question-line px-2"></i>FAQ</a></li>
+<!DOCTYPE html>
+<html
+  lang="en"
+  x-data="{
+  darkMode: localStorage.getItem('darkMode')
+  ? JSON.parse(localStorage.getItem('darkMode'))
+  : window.matchMedia('(prefers-color-scheme: dark)').matches,
+  toggleDarkMode() {
+    this.darkMode = ! this.darkMode;
+    localStorage.setItem('darkMode', JSON.stringify(this.darkMode));
+  }
+}"
+  :class="{ 'dark': darkMode, '' : !darkMode }"
+  x-init="$watch('darkMode', value => document.body.classList.toggle('dark', value))"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>eSports Manager</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script>
+      tailwind.config = {
+        darkMode: "selector",
+        theme: {
+          extend: {},
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="bg-gray-50 dark:bg-slate-950 dark:text-white">
+    <header
+      class="fixed top-0 w-full p-4 text-white bg-blue-500 dark:bg-blue-700"
+    >
+      <div class="container flex justify-between h-16 mx-auto">
+        <a
+          rel="noopener noreferrer"
+          href="#"
+          aria-label="Back to homepage"
+          class="flex items-center p-2"
+        >
+          <img src="assets/esportsmanagertrophy.svg" class="w-16" />
+        </a>
+        <ul class="items-stretch hidden space-x-3 md:flex text-lg">
+          <li class="flex items-center mr-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-house-door-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"
+              />
+            </svg>
+            <a
+              rel="noopener noreferrer"
+              href="#"
+              class="flex px-4 -mb-1 uppercase font-semibold"
+              >Home</a
+            >
+          </li>
+          <li class="flex items-center mr-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-info-circle-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"
+              />
+            </svg>
+            <a
+              rel="noopener noreferrer"
+              href="#"
+              class="flex px-4 -mb-1 uppercase font-semibold"
+              >About</a
+            >
+          </li>
+          <li class="flex items-center mr-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-newspaper"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5z"
+              />
+              <path
+                d="M2 3h10v2H2zm0 3h4v3H2zm0 4h4v1H2zm0 2h4v1H2zm5-6h2v1H7zm3 0h2v1h-2zM7 8h2v1H7zm3 0h2v1h-2zm-3 2h2v1H7zm3 0h2v1h-2zm-3 2h2v1H7zm3 0h2v1h-2z"
+              />
+            </svg>
+            <a
+              rel="noopener noreferrer"
+              href="#"
+              class="flex px-4 -mb-1 uppercase font-semibold"
+              >News</a
+            >
+          </li>
+          <li class="flex items-center mr-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-github"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
+              />
+            </svg>
+            <a
+              rel="noopener noreferrer"
+              href="#"
+              class="flex items-center px-4 -mb-1 uppercase font-semibold"
+              >GitHub</a
+            >
+          </li>
+          <li class="flex items-center mr-2">
+            <button
+              class="flex items-center px-4 -mb-1 uppercase font-semibold rounded-3xl py-4 bg-blue-400 hover:bg-blue-300 dark:bg-blue-600 dark:hover:bg-blue-500"
+              @click="toggleDarkMode"
+            >
+              <span x-show="darkMode === true">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-sun-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"
+                  />
+                </svg>
+              </span>
+              <span x-show="darkMode === false">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-moon-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
         </ul>
+        <button class="flex justify-end p-4 md:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
       </div>
-    </div>
-  </nav>
+    </header>
 
-  <div class="px-4 py-5 my-5 text-center bg-primary text-white"
-    style="background-image:url(assets/pexels-lucie-liz-3165335.jpg); background-size:cover;background-repeat:no-repeat; background-position: center;">
-    <img class="d-block mx-auto mb-4" src="assets/esportsmanager.svg" alt="">
-    <h1 class="display-2 py-4 fw-bold text-uppercase">A new challenge awaits</h1>
-    <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4 py-4">Choose your eSports team and guide them to glory!</p>
-      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <a href="#featured" class="btn btn-info rounded-pill btn-lg px-4 gap-3">Learn more</a>
-        <a href="https://github.com/sturdy-robot/esports-manager/blob/develop/CONTRIBUTING.md" target="_blank"
-          class="btn btn-outline-light rounded-pill btn-lg px-4">Contribute</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="container px-4 py-2" id="featured">
-    <h2 class="pb-2 border-bottom border-info text-uppercase text-info">Features</h2>
-    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-      <div class="feature col">
-        <div class="card shadow border-info mb-5 bg-light rounded" style="height: 18rem">
-          <h3 class="py-4 px-4 card-title text-info">Free and open source</h3>
-          <p class="py-4 px-4 card-text">Paragraph of text beneath the heading to explain the heading. We'll add onto it
-            with another
-            sentence
-            and probably just keep going until we run out of words.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container px-4 py-2" id="news">
-    <h2 class="pb-2 border-bottom border-info text-uppercase text-info">News</h2>
-    <div class="col g-4 py-4 px-4 row-cols-1 row-cols-lg-1">
-      <div class="feature row py-4">
-        <div class="card border-info bg-light" style="max-height: 15em;">
-          <h3 class="py-3 px-2 card-title text-info">What is eSports Manager?</h3>
-          <div class="card-body">
-            <p class="card-text"><strong>eSports Manager</strong> is a free and open source eSports management game
-              written entirely in Python and distributed under the GPLv3. It aims to become a fully featured management
-              game, where you can manage an eSports team, play championships, hire new players, find new talents, and
-              get recognition for your achievements...</p>
-            <a href="#" class="btn btn-info mb-5 rounded-pill text-uppercase px-5">Read more</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container px-4 py-2" id="contribute">
-    <h2 class="pb-2 border-bottom border-info fw-bold text-uppercase text-info">Contribute</h2>
-    <div class="row g-4 py-4 row-cols-1 row-cols-lg-3 px-3">
-      <div class="feature col">
-        <div class="card shadow border-info mb-5 bg-light rounded" style="max-height: 25rem;">
-          <div class="text-center">
-            <img src="assets/github-mark.svg" class="py-2 px-2">
-          </div>
-          <div class="card-body">
-            <h3 class="px-4 card-title text-info fw-bold">Contribute to the code</h3>
-            <p class="py-4 px-4 card-text">We accept user contributions on GitHub! If you know Python, or if
-              you want to contribute with other assets,
-              you are more than welcome to help us!
-            </p>
-            <div class="text-center px-2 py-2">
-              <a href="https://github.com/openfootmanager/openfootmanager/blob/develop/CONTRIBUTING.md"
-                class="btn btn-info rounded-pill">I want to help!</a>
-            </div>
+    <section>
+      <div
+        class="bg-blue-950 text-white"
+        style="
+          background-image: url(assets/pexels-lucie-liz-3165335.jpg);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        "
+      >
+        <div
+          class="container flex flex-col items-center px-4 py-5 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 dark:text-gray-50"
+        >
+          <img class="mt-20 mb-10" src="assets/esportsmanager.svg" alt="logo" />
+          <h1
+            class="text-5xl font-bold leading-none sm:text-6xl xl:max-w-3xl dark:text-gray-50 uppercase"
+          >
+            A new challenge awaits
+          </h1>
+          <p class="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl dark:text-gray-50">
+            Choose your eSports team and guide them to glory!
+          </p>
+          <div class="flex flex-wrap justify-center">
+            <button
+              type="button"
+              class="px-8 py-3 m-2 text-lg font-semibold rounded-xl bg-blue-500 dark:bg-blue-700 dark:text-gray-200"
+            >
+              Learn more
+            </button>
+            <button
+              type="button"
+              class="px-8 py-3 m-2 text-lg border rounded-xl dark:border-gray-300 dark:text-gray-50"
+            >
+              Contribute
+            </button>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+      <img
+        src="https://source.unsplash.com/random/480x320"
+        alt=""
+        class="w-5/6 mx-auto mb-12 -mt-20 dark:bg-gray-500 rounded-lg shadow-md lg:-mt-40"
+      />
+    </section>
 
-
-  <div class="bg-info">
-    <div class="container text-white">
-      <footer class="py-5">
-        <div class="row">
-          <div class="col-6 col-md-2 mb-3">
-            <h5>Section</h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-            </ul>
-          </div>
-
-          <div class="col-6 col-md-2 mb-3">
-            <h5>Section</h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-            </ul>
-          </div>
-
-          <div class="col-6 col-md-2 mb-3">
-            <h5>Section</h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-            </ul>
-          </div>
-
-          <div class="col-md-5 offset-md-1 mb-3">
-            <form>
-              <h5>Subscribe to our newsletter</h5>
-              <p>Monthly digest of what's new and exciting from us.</p>
-              <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                <label for="newsletter1" class="visually-hidden">Email address</label>
-                <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                <button class="btn btn-primary" type="button">Subscribe</button>
-              </div>
-            </form>
+    <section
+      class="m-20 md:m-20 py-16 bg-gray-100 dark:bg-blue-950 border border-blue-300 dark:border-blue-400 dark:text-white rounded-3xl shadow-2xl"
+    >
+      <div class="container mx-auto p-4 my-8 space-y-2 text-center">
+        <h2 class="-mt-8 text-5xl font-bold">Build your dream team</h2>
+        <p class="py-5 dark:text-gray-400">And lead them to victory</p>
+      </div>
+      <div
+        class="container mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3"
+      >
+        <div class="flex flex-col items-center p-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="w-16 h-16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <h3 class="my-3 text-3xl font-semibold">Free and open source</h3>
+          <div class="space-y-1 leading-tight text-center">
+            <p>eSports Manager is free as in free beer</p>
+            <p>And free as in free dinner</p>
+            <p>You can see how it works</p>
+            <p>and modify it however you want</p>
           </div>
         </div>
-
-        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-          <p>&copy; 2023 eSports Manager</p>
-          <ul class="list-unstyled d-flex">
-            <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
-                  <use xlink:href="#twitter" />
-                </svg></a></li>
-            <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
-                  <use xlink:href="#instagram" />
-                </svg></a></li>
-            <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
-                  <use xlink:href="#facebook" />
-                </svg></a></li>
-          </ul>
+        <div class="flex flex-col items-center p-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="w-16 h-16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <h3 class="my-3 text-3xl font-semibold">Product</h3>
+          <div class="space-y-1 leading-tight">
+            <p>Similique quas ea veniam</p>
+            <p>Tempore quasi porro</p>
+            <p>Blanditiis aut mollitia ex</p>
+          </div>
         </div>
-      </footer>
-    </div>
-  </div>
-
-</body>
-
+        <div class="flex flex-col items-center p-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="w-16 h-16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <h3 class="my-3 text-3xl font-semibold">Product</h3>
+          <div class="space-y-1 leading-tight">
+            <p>Similique quas ea veniam</p>
+            <p>Tempore quasi porro</p>
+            <p>Blanditiis aut mollitia ex</p>
+          </div>
+        </div>
+        <div class="flex flex-col items-center p-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="w-16 h-16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <h3 class="my-3 text-3xl font-semibold">Product</h3>
+          <div class="space-y-1 leading-tight">
+            <p>Similique quas ea veniam</p>
+            <p>Tempore quasi porro</p>
+            <p>Blanditiis aut mollitia ex</p>
+          </div>
+        </div>
+        <div class="flex flex-col items-center p-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="w-16 h-16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <h3 class="my-3 text-3xl font-semibold">Product</h3>
+          <div class="space-y-1 leading-tight">
+            <p>Similique quas ea veniam</p>
+            <p>Tempore quasi porro</p>
+            <p>Blanditiis aut mollitia ex</p>
+          </div>
+        </div>
+        <div class="flex flex-col items-center p-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="w-16 h-16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <h3 class="my-3 text-3xl font-semibold">Product</h3>
+          <div class="space-y-1 leading-tight">
+            <p>Similique quas ea veniam</p>
+            <p>Tempore quasi porro</p>
+            <p>Blanditiis aut mollitia ex</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
