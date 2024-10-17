@@ -19,6 +19,11 @@
     <title>eSports Manager</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="assets/esportsmanagertrophy.svg"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <script
       defer
@@ -34,7 +39,7 @@
     </script>
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body class="bg-gray-50 dark:bg-slate-950 dark:text-white">
+  <body class="bg-gray-50 dark:bg-slate-900 dark:text-white">
     <header
       class="fixed top-0 w-full p-4 text-white bg-blue-500 dark:bg-blue-700"
     >
@@ -81,10 +86,7 @@
                 d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"
               />
             </svg>
-            <a
-              rel="noopener noreferrer"
-              href="#"
-              class="flex px-4 -mb-1 uppercase font-semibold"
+            <a href="#faq" class="flex px-4 -mb-1 uppercase font-semibold"
               >About</a
             >
           </li>
@@ -105,10 +107,10 @@
               />
             </svg>
             <a
-              rel="noopener noreferrer"
-              href="#"
+              href="https://github.com/esports-manager/esports-manager/issues/1"
+              target="_blank"
               class="flex px-4 -mb-1 uppercase font-semibold"
-              >News</a
+              >Roadmap</a
             >
           </li>
           <li class="flex items-center mr-2">
@@ -125,8 +127,8 @@
               />
             </svg>
             <a
-              rel="noopener noreferrer"
-              href="#"
+              href="https://github.com/esports-manager/esports-manager"
+              target="_blank"
               class="flex items-center px-4 -mb-1 uppercase font-semibold"
               >GitHub</a
             >
@@ -197,11 +199,11 @@
         "
       >
         <div
-          class="container flex flex-col items-center px-4 py-5 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 dark:text-gray-50"
+          class="flex flex-col items-center px-4 py-5 pb-48 mx-auto text-center lg:pb-48 md:py-48 md:px-10 lg:px-32 dark:text-gray-50"
         >
           <img class="mt-20 mb-10" src="assets/esportsmanager.svg" alt="logo" />
           <h1
-            class="text-5xl font-bold leading-none sm:text-6xl xl:max-w-3xl dark:text-gray-50 uppercase"
+            class="text-5xl font-bold leading-none sm:text-6xl dark:text-gray-50 uppercase"
           >
             A new challenge awaits
           </h1>
@@ -209,18 +211,18 @@
             Choose your eSports team and guide them to glory!
           </p>
           <div class="flex flex-wrap justify-center">
-            <button
-              type="button"
-              class="px-8 py-3 m-2 text-xl font-semibold rounded-xl bg-blue-500 dark:bg-blue-700 dark:text-gray-200"
+            <a
+              href="#about"
+              class="px-8 py-3 m-2 text-xl font-semibold rounded-xl bg-blue-500 hover:bg-blue-400 cursor-pointer dark:bg-blue-700 dark:bg-blue-600 dark:text-gray-200"
             >
               Learn more
-            </button>
-            <button
-              type="button"
-              class="px-8 py-3 m-2 text-xl border rounded-xl dark:border-gray-300 dark:text-gray-50"
+            </a>
+            <a
+              href="https://github.com/esports-manager/esports-manager/blob/develop/CONTRIBUTING.md"
+              class="px-8 py-3 m-2 text-xl border rounded-xl cursor-pointer hover:bg-gray-300 hover:text-black dark:border-gray-300 dark:hover:text-gray-50 dark:hover:bg-gray-500"
             >
               Contribute
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -232,10 +234,10 @@
     </section>
 
     <section
-      class="container mx-auto py-16 bg-gray-100 dark:bg-slate-800 border border-blue-300 dark:border-slate-600 dark:text-white rounded-3xl shadow-2xl"
+      class="container mx-auto py-16 bg-gray-100 dark:bg-slate-800 border border-gray-400 dark:border-slate-600 dark:text-white rounded-3xl shadow-2xl"
     >
       <div
-        class="container mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        class="container mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3 items-center"
       >
         <div class="flex flex-col items-center p-4">
           <svg
@@ -250,7 +252,7 @@
               d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
             />
           </svg>
-          <h3 class="my-3 text-3xl font-semibold">FOSS</h3>
+          <h3 class="my-3 text-3xl font-semibold">Open Source</h3>
           <div class="space-y-1 leading-tight text-wrap w-72 text-center">
             eSports Manager is an open source project. You can see the source
             code and study how it works. We encourage you to take a look at it
@@ -279,28 +281,19 @@
               d="M2 12.161V13c0 1.007.875 1.755 1.904 2.223C4.978 15.711 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"
             />
           </svg>
-          <h3 class="my-3 text-3xl font-semibold">Database</h3>
+          <h3 class="my-3 text-3xl font-semibold">Modifiable database</h3>
           <div class="space-y-1 leading-tight text-wrap w-72 text-center">
             The game comes with a default database that is fully modifiable. You
             can easily add your favorite teams and players.
           </div>
         </div>
         <div class="flex flex-col items-center p-4">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-plug-fill w-16 h-16"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M6 0a.5.5 0 0 1 .5.5V3h3V.5a.5.5 0 0 1 1 0V3h1a.5.5 0 0 1 .5.5v3A3.5 3.5 0 0 1 8.5 10c-.002.434-.01.845-.04 1.22-.041.514-.126 1.003-.317 1.424a2.08 2.08 0 0 1-.97 1.028C6.725 13.9 6.169 14 5.5 14c-.998 0-1.61.33-1.974.718A1.92 1.92 0 0 0 3 16H2c0-.616.232-1.367.797-1.968C3.374 13.42 4.261 13 5.5 13c.581 0 .962-.088 1.218-.219.241-.123.4-.3.514-.55.121-.266.193-.621.23-1.09.027-.34.035-.718.037-1.141A3.5 3.5 0 0 1 4 6.5v-3a.5.5 0 0 1 .5-.5h1V.5A.5.5 0 0 1 6 0"
-            />
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots-fill w-16 h-16" viewBox="0 0 16 16">
+            <path d="M16 8c0 3.866-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7M5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0m4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
           </svg>
-          <h3 class="my-3 text-3xl font-semibold">Extensible</h3>
+          <h3 class="my-3 text-3xl font-semibold">Live descriptions</h3>
           <div class="space-y-1 leading-tight w-72 text-center">
-            Do nisi eiusmod laboris consequat sint ullamco cillum aliquip officia incididunt irure nostrud exercitation proident.
+            Your matches are simulated in real-time, with live descriptions of what happens in your game.
           </div>
         </div>
         <div class="flex flex-col items-center p-4">
@@ -328,11 +321,11 @@
             width="16"
             height="16"
             fill="currentColor"
-            class="bi bi-piggy-bank-fill h-16 w-16"
+            class="bi bi-currency-dollar w-16 h-16"
             viewBox="0 0 16 16"
           >
             <path
-              d="M7.964 1.527c-2.977 0-5.571 1.704-6.32 4.125h-.55A1 1 0 0 0 .11 6.824l.254 1.46a1.5 1.5 0 0 0 1.478 1.243h.263c.3.513.688.978 1.145 1.382l-.729 2.477a.5.5 0 0 0 .48.641h2a.5.5 0 0 0 .471-.332l.482-1.351c.635.173 1.31.267 2.011.267.707 0 1.388-.095 2.028-.272l.543 1.372a.5.5 0 0 0 .465.316h2a.5.5 0 0 0 .478-.645l-.761-2.506C13.81 9.895 14.5 8.559 14.5 7.069q0-.218-.02-.431c.261-.11.508-.266.705-.444.315.306.815.306.815-.417 0 .223-.5.223-.461-.026a1 1 0 0 0 .09-.255.7.7 0 0 0-.202-.645.58.58 0 0 0-.707-.098.74.74 0 0 0-.375.562c-.024.243.082.48.32.654a2 2 0 0 1-.259.153c-.534-2.664-3.284-4.595-6.442-4.595m7.173 3.876a.6.6 0 0 1-.098.21l-.044-.025c-.146-.09-.157-.175-.152-.223a.24.24 0 0 1 .117-.173c.049-.027.08-.021.113.012a.2.2 0 0 1 .064.199m-8.999-.65a.5.5 0 1 1-.276-.96A7.6 7.6 0 0 1 7.964 3.5c.763 0 1.497.11 2.18.315a.5.5 0 1 1-.287.958A6.6 6.6 0 0 0 7.964 4.5c-.64 0-1.255.09-1.826.254ZM5 6.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0"
+              d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73z"
             />
           </svg>
           <h3 class="my-3 text-3xl font-semibold">No hidden fees</h3>
@@ -361,6 +354,199 @@
               computer to play it.
             </p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="mt-10 dark:text-white py-16">
+      <div
+        class="container flex flex-col justify-center p-4 mx-auto md:p-8 rounded-3xl dark:bg-gray-800 dark:text-gray-100 border border-gray-400 dark:border-slate-600 shadow-2xl"
+      >
+        <h2
+          class="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl"
+        >
+          Frequently Asked Questions
+        </h2>
+        <div
+          class="flex flex-col text-xl divide-y divide-gray-400 sm:px-8 lg:px-12 xl:px-32 dark:divide-gray-300"
+        >
+          <details>
+            <summary
+              class="py-2 outline-none cursor-pointer focus:underline font-bold"
+            >
+              What's this game about?
+            </summary>
+            <div class="px-4 pb-4">
+              <p>
+                <b>eSports Manager</b> is a game where you can manage an eSports
+                team, just like you can do in games such as
+                <b>Football Manager</b>, <b>FIFA Manager</b>,
+                <b>Championship Manager</b>, <b>Elifoot</b>, and etc.
+              </p>
+              <br />
+              <p>
+                This project was inspired by a game called
+                <b><a href="https://bygfoot.sourceforge.io/new/">Bygfoot</a></b
+                >, which is sort of a free and open source alternative to
+                Football Manager. Bygfoot is written in C and the interface is
+                written in GTK 2. It's pretty outdated for today's standards,
+                and the original developers no longer maintain the project, with
+                a few players still active on it.
+              </p>
+              <br />
+              <p>
+                I wanted to develop a game using the technologies I was most
+                comfortable with, so I wrote the base of the game in Python back
+                in 2020 as a hobby project. Initially, I didn't know what I was
+                doing, so the game went through several rewrites, and
+                eventually, it became what I'm working right now. Just recently
+                I got more comfortable to invest more time into this project and
+                try to bring it to life just as I envisioned it.
+              </p>
+              <br />
+              <p>
+                Right now the game is still in development, and I'm using a mix
+                of web technologies to build its UI.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary
+              class="py-2 outline-none cursor-pointer focus:underline font-bold"
+            >
+              Who is the author of this game?
+            </summary>
+            <div class="px-4 pb-4">
+              <p>
+                You can find me on GitHub as
+                <a href="https://github.com/sturdy-robot"><b>Sturdy Robot</b></a
+                >. I'm a 28-year-old programmer from Brazil. I love games and I
+                experiment with a lot of different programming projects.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary
+              class="py-2 outline-none cursor-pointer focus:underline font-bold"
+            >
+              Where can I download the game?
+            </summary>
+            <div class="px-4 pb-4">
+              <p>
+                Unfortunately, we don't have a public release yet, only
+                debugging versions that require installing Python to run. As
+                soon as the first public release comes out, I'll update this
+                website accordingly.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary
+              class="py-2 outline-none cursor-pointer focus:underline font-bold"
+            >
+              Can I see the games in 3D?
+            </summary>
+            <div class="px-4 pb-4">
+              <p>
+                My idea with this game was to build a simple simulation engine,
+                similar to what Football Manager and Championship Manager did on
+                their early days. You can see the descriptions of what happens
+                in the matches, but no visual representation.
+              </p>
+              <br />
+              <p>
+                3D is very hard to pull off for a single developer. Maybe it's
+                something we can work on in the future.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary
+              class="py-2 outline-none cursor-pointer focus:underline font-bold"
+            >
+              What eSports can we play?
+            </summary>
+            <div class="px-4 pb-4">
+              <p>
+                My initial idea for this game was to develop a League of Legends
+                manager game. Back in 2018, when the idea came to my mind, Riot
+                Games would allow people to make fan projects using their IP and
+                stuff, so I was sort of trying to work out on my own LoL manager
+                project.
+              </p>
+              <br />
+              <p>
+                In late 2019, Riot Games announced they would be working their
+                own LoL eSports Manager project, and they changed their
+                <a href="https://www.riotgames.com/en/legal"
+                  ><b>Legal Jibber Jabber</b></a
+                >
+                page to prohibit fan games. It's already 2024, and I haven't
+                seen the release of the LoL eSports Manager. I believe it was
+                only released as a gacha game in China, which is such a
+                <a
+                  href="https://www.youtube.com/watch?v=V_ecXt6Ch1o&ab_channel=Gbay99"
+                  ><b>wasted potential</b></a
+                >.
+              </p>
+              <br />
+              <p>
+                So, instead, on eSports Manager you will be able to play a MOBA
+                game inspired by League of Legends.
+              </p>
+              <br />
+              <p>
+                In the future I plan to include RTS (inspired by Starcraft 2)
+                and FPS (inspired by CounterStrike).
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary
+              class="py-2 outline-none cursor-pointer focus:underline font-bold"
+            >
+              When is version 1.0 coming out?
+            </summary>
+            <div class="px-4 pb-4 space-y-2">
+              <p>
+                Unfortunately, I don't have a release date yet. I have a
+                full-time job, and I work on this during my spare time or
+                whenever I feel like it. I also have many projects that I'm
+                working on at the same time, so my attention is not entirely
+                focused here. As a sister project, I also have
+                <a href="https://github.com/openfootmanager/openfootmanager"
+                  ><b>Openfoot Manager</b></a
+                >, which is my version of Football Manager, which is also free
+                and open source.
+              </p>
+              <br />
+              <p>
+                If you want the project to release earlier, you can submit your
+                own contributions. Just check out how you can contribute
+                <a
+                  href="https://github.com/esports-manager/esports-manager/blob/develop/CONTRIBUTING.md"
+                  ><b>here</b></a
+                >.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary
+              class="py-2 outline-none cursor-pointer focus:underline font-bold"
+            >
+              How can I help?
+            </summary>
+            <div class="px-4 pb-4 space-y-2">
+              <p>
+                You can check out the
+                <a
+                  href="https://github.com/esports-manager/esports-manager/blob/develop/CONTRIBUTING.md"
+                  ><b>CONTRIBUTING</b></a
+                >
+                page for more information about how to support the project.
+              </p>
+            </div>
+          </details>
         </div>
       </div>
     </section>
