@@ -11,6 +11,16 @@
   x-init="$watch('darkMode', value => document.body.classList.toggle('dark', value))">
 
 <head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "selector",
+      theme: {
+        extend: {},
+      },
+    };
+  </script>
   <script type="text/javascript" data-cmp-ab="1"
     src="https://cdn.consentmanager.net/delivery/autoblocking/59e7a281c2e8b.js"
     data-cmp-host="a.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="16"></script>
@@ -30,16 +40,6 @@
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/x-icon" href="assets/esportsmanagertrophy.svg" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <script>
-    tailwind.config = {
-      darkMode: "selector",
-      theme: {
-        extend: {},
-      },
-    };
-  </script>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
