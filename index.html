@@ -3,6 +3,7 @@
   darkMode: localStorage.getItem('darkMode')
   ? JSON.parse(localStorage.getItem('darkMode'))
   : window.matchMedia('(prefers-color-scheme: dark)').matches,
+  mobileOpen: false,
   toggleDarkMode() {
     this.darkMode = ! this.darkMode;
     localStorage.setItem('darkMode', JSON.stringify(this.darkMode));
@@ -28,7 +29,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3GP39670Y"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() {dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-Z3GP39670Y');
@@ -37,49 +38,67 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>eSports Manager</title>
-  <meta name="description" content="" />
+  <meta name="description"
+    content="eSports Manager is a free and open-source sports management game. Build your team, manage transfers, and lead your club to glory across multiple esports genres." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/x-icon" href="assets/esportsmanagertrophy.svg" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="canonical" href="https://esportsmanager.net/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="eSports Manager" />
+  <meta property="og:description"
+    content="Free and open-source esports management game. Choose your team and guide them to glory." />
+  <meta property="og:url" content="https://esportsmanager.net/" />
+  <meta property="og:image" content="https://esportsmanager.net/assets/pexels-lucie-liz-3165335.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="eSports Manager" />
+  <meta name="twitter:description"
+    content="Free and open-source esports management game. Choose your team and guide them to glory." />
+  <meta name="twitter:image" content="https://esportsmanager.net/assets/pexels-lucie-liz-3165335.jpg" />
+  <meta name="theme-color" content="#1D4ED8" />
+  <link rel="preload" as="image" href="assets/pexels-lucie-liz-3165335.jpg" />
 </head>
 
 <body class="bg-gray-50 dark:bg-slate-900 dark:text-white">
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-black focus:p-2 focus:rounded">Skip
+    to content</a>
   <header class="fixed top-0 w-full p-4 text-white bg-blue-500 dark:bg-blue-700">
     <div class="container flex justify-between h-16 mx-auto">
       <a rel="noopener noreferrer" href="#" aria-label="Back to homepage" class="flex items-center p-2">
-        <img src="assets/esportsmanagertrophy.svg" class="w-16" />
+        <img src="assets/esportsmanagertrophy.svg" class="w-16" alt="eSports Manager logo" width="64" height="64" />
       </a>
       <ul class="items-stretch hidden space-x-3 md:flex text-lg">
         <li class="flex items-center mr-2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-            class="bi bi-house-door-fill" viewBox="0 0 16 16">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true"
+            focusable="false" class="bi bi-house-door-fill" viewBox="0 0 16 16">
             <path
               d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5" />
           </svg>
           <a rel="noopener noreferrer" href="#" class="flex px-4 -mb-1 uppercase font-semibold">Home</a>
         </li>
         <li class="flex items-center mr-2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-            class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true"
+            focusable="false" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
             <path
               d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2" />
           </svg>
           <a href="#faq" class="flex px-4 -mb-1 uppercase font-semibold">About</a>
         </li>
         <li class="flex items-center mr-2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-newspaper"
-            viewBox="0 0 16 16">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true"
+            focusable="false" class="bi bi-newspaper" viewBox="0 0 16 16">
             <path
               d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5z" />
             <path
-              d="M2 3h10v2H2zm0 3h4v3H2zm0 4h4v1H2zm0 2h4v1H2zm5-6h2v1H7zm3 0h2v1h-2zM7 8h2v1H7zm3 0h2v1h-2zm-3 2h2v1H7zm3 0h2v1h-2zm-3 2h2v1H7zm3 0h2v1h-2z" />
+              d="M2 3h10v2H2zm0 3h4v3H2zm0 4h4v1H2zm0 2h4v1H2zm5-6h2v1H7zm3 0h2v1h-2zM7 8h2v1H7zm3 0h2v1h-2zm-3 2h2v1H7zm3 0h2v1h-2z" />
           </svg>
           <a href="https://github.com/esports-manager/esports-manager/issues/1" target="_blank"
             class="flex px-4 -mb-1 uppercase font-semibold">Roadmap</a>
         </li>
         <li class="flex items-center mr-2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github"
-            viewBox="0 0 16 16">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true"
+            focusable="false" class="bi bi-github" viewBox="0 0 16 16">
             <path
               d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
           </svg>
@@ -89,7 +108,8 @@
         <li class="flex items-center mr-2">
           <button
             class="flex items-center px-4 -mb-1 uppercase font-semibold rounded-3xl py-4 bg-blue-400 hover:bg-blue-300 dark:bg-blue-600 dark:hover:bg-blue-500"
-            @click="toggleDarkMode">
+            @click="toggleDarkMode" :aria-pressed="darkMode"
+            :aria-label="darkMode ? 'Switch to light mode' : 'Switch to dark mode'">
             <span x-show="darkMode === true">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sun-fill"
                 viewBox="0 0 16 16">
@@ -107,45 +127,74 @@
           </button>
         </li>
       </ul>
-      <button class="flex justify-end p-4 md:hidden">
+      <button class="flex justify-end p-4 md:hidden" @click="mobileOpen = !mobileOpen"
+        :aria-expanded="mobileOpen.toString()" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
     </div>
+    <nav id="mobile-menu" class="md:hidden" x-show="mobileOpen" x-transition>
+      <ul class="px-4 pb-4 space-y-2 text-lg">
+        <li>
+          <a rel="noopener noreferrer" href="#" class="block px-2 py-2 rounded hover:bg-blue-400/20">Home</a>
+        </li>
+        <li>
+          <a href="#faq" class="block px-2 py-2 rounded hover:bg-blue-400/20">About</a>
+        </li>
+        <li>
+          <a href="https://github.com/esports-manager/esports-manager/issues/1" target="_blank"
+            class="block px-2 py-2 rounded hover:bg-blue-400/20">Roadmap</a>
+        </li>
+        <li>
+          <a href="https://github.com/esports-manager/esports-manager" target="_blank"
+            class="block px-2 py-2 rounded hover:bg-blue-400/20">GitHub</a>
+        </li>
+      </ul>
+    </nav>
   </header>
 
-  <section>
-    <div class="bg-blue-950 text-white" style="
-          background-image: url(assets/pexels-lucie-liz-3165335.jpg);
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-position: center;
+  <main id="main-content">
+
+    <section>
+      <div class="bg-blue-950 text-white" style="
+        background-image: url(assets/pexels-lucie-liz-3165335.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      ">
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
         ">
-      <div
-        class="flex flex-col items-center px-4 py-5 pb-48 mx-auto text-center lg:pb-48 md:py-48 md:px-10 lg:px-32 dark:text-gray-50">
-        <img class="mt-20 mb-10" src="assets/esportsmanager.svg" alt="logo" />
-        <h1 class="text-5xl font-bold leading-none sm:text-6xl dark:text-gray-50 uppercase">
-          A new challenge awaits
-        </h1>
-        <p class="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl dark:text-gray-50">
-          Choose your eSports team and guide them to glory!
-        </p>
-        <div class="flex flex-wrap justify-center">
-          <a href="#faq"
-            class="px-8 py-3 m-2 text-xl font-semibold rounded-xl bg-blue-500 hover:bg-blue-400 cursor-pointer dark:bg-blue-700 dark:bg-blue-600 dark:text-gray-200">
-            Learn more
-          </a>
-          <a href="https://github.com/esports-manager/esports-manager/blob/develop/CONTRIBUTING.md"
-            class="px-8 py-3 m-2 text-xl border rounded-xl cursor-pointer hover:bg-gray-300 hover:text-black dark:border-gray-300 dark:hover:text-gray-50 dark:hover:bg-gray-500">
-            Contribute
-          </a>
+        <div
+          class="flex flex-col items-center px-4 py-5 pb-48 mx-auto text-center lg:pb-48 md:py-48 md:px-10 lg:px-32 dark:text-gray-50">
+          <img class="mt-20 mb-10" src="assets/esportsmanager.svg" alt="eSports Manager wordmark" width="320"
+            height="80" />
+          <h1 class="text-5xl font-bold leading-none sm:text-6xl dark:text-gray-50 uppercase">
+            A new challenge awaits
+          </h1>
+          <p class="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl dark:text-gray-50">
+            Choose your eSports team and guide them to glory!
+          </p>
+          <div class="flex flex-wrap justify-center">
+            <a href="#faq"
+              class="px-8 py-3 m-2 text-xl font-semibold rounded-xl bg-blue-500 hover:bg-blue-400 cursor-pointer dark:bg-blue-700 dark:bg-blue-600 dark:text-gray-200">
+              Learn more
+            </a>
+            <a href="https://github.com/esports-manager/esports-manager/blob/develop/CONTRIBUTING.md"
+              class="px-8 py-3 m-2 text-xl border rounded-xl cursor-pointer hover:bg-gray-300 hover:text-black dark:border-gray-300 dark:hover:text-gray-50 dark:hover:bg-gray-500">
+              Contribute
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <img src="https://source.unsplash.com/random/480x320" alt=""
-      class="w-5/6 mx-auto mb-12 -mt-20 dark:bg-gray-500 rounded-lg shadow-md lg:-mt-40" />
-  </section>
+      <img src="assets/homepage_screenshot.png" alt="Gameplay themed illustration"
+        class="w-5/6 mx-auto mb-12 -mt-20 dark:bg-gray-500 rounded-lg shadow-md lg:-mt-40" loading="lazy" width="480"
+        height="320" />
+    </section>
+
+  </main>
 
   <section
     class="container mx-auto py-16 bg-gray-100 dark:bg-slate-800 border border-gray-400 dark:border-slate-600 dark:text-white rounded-3xl shadow-2xl">
@@ -400,7 +449,7 @@
     <div class="container px-6 mx-auto space-y-6 divide-y dark:divide-gray-600 md:space-y-12 divide-opacity-50">
       <div class="grid justify-center pt-6 lg:justify-between">
         <div class="flex flex-col self-center text-sm text-center md:block lg:col-start-1 md:space-x-6">
-          <span>©2024 All rights reserved</span>
+          <span>©2024-2025 All rights reserved</span>
         </div>
         <div class="flex justify-center pt-4 space-x-4 lg:pt-0 lg:col-end-13">
           <a href="mailto:admin@esportsmanager.net" title="Email"
