@@ -1,10 +1,10 @@
 ---
 title: "Building eSports Manager: a 14 year journey"
 description: "A retrospective on the long journey behind eSports Manager, from early abandoned ideas to a working prototype, covering years of experimentation, technical challenges, and lessons learned along the way."
-pubDate: 2026-01-23
+pubDate: 2026-01-22T20:00:00
 heroImage: "/assets/homepage_screenshot.png"
 tags: ["update", "history", "development"]
-draft: false
+draft: true
 ---
 
 ## Initial idea
@@ -55,34 +55,6 @@ The same happened on the backend. When you're facing a problem you don't fully u
 
 Today, I write a lot of the code myself. But when I need to quickly sketch ideas or bootstrap a feature, I still rely on AI to get past the boring parts. It saves time and keeps the project moving.
 
-## The project today
+## Current state of the project
 
-The current stack is admittedly a bit bloated:
 
-**FastAPI + SQLModel + Pywebview + Jinja2 + HTMX + AlpineJS**
-
-It's a lot to maintain, but it works, and I'm sticking with it for the MVP. Right now, the game already has:
-
-* A working dashboard
-* A match simulation system with picks and bans
-* A functional database and game session system
-* Several core pages implemented
-
-# Current MVP
-
-For the MVP, you'll be able to:
-
-1. Create your manager
-2. Choose your team
-3. Schedule practice sessions
-4. Receive inbox messages and plan your next actions
-5. Define your team's strategy
-6. Select the players for each match
-7. Pick champions based on the current meta
-8. Simulate matches with real-time event descriptions
-9. Develop your players
-10. Compete in a league and fight for the title
-
-Features like finances, transfers, and game patches aren't in yet, but this already feels like a solid and playable starting point.
-
-Stay tuned for more updates.
